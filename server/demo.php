@@ -1,12 +1,22 @@
 <?php
 
-function mbStringToArray ($string) {
-    $strlen = mb_strlen($string);
-    while ($strlen) {
-        $array[] = mb_substr($string,0,1,"utf8");
-        $string = mb_substr($string,1,$strlen,"utf8");
-        $strlen = mb_strlen($string);
-    }
-    return $array;
+require_once("./config.php");
+require_once("./classes/ComposeImg.class.php");
+require_once("./classes/WXLib.class.php");
+//路径配置
+$savepath = __ROOT_PATH__."/img/compose/";
+$imgpath = __ROOT_PATH__."/img/text/";
+$fontpath =  __ROOT_PATH__."/fonts/SIMLI.TTF";
+
+$wxlib = new WXLib(APPID,APPSECRET,__SERVER_PATH__.'/json/');
+$filepath = __ROOT_PATH__."/img/text/2/2.jpg";
+
+$json = json_decode($wxlib->uploadImg($filepath));
+
+if($json->media_id){
+header('Content-type: image/jpeg'); 
+	echo $wxlib->downloadImg($json->media_id);
+}else{
+	echo $json->errmsg;
 }
-echo json_encode(mbStringToArray("恭贺12321"));
+

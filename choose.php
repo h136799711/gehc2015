@@ -60,57 +60,17 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 		<link rel="stylesheet" type="text/css" href="css/index.css?v=<?php echo time(); ?>" />
 		<script src="js/jquery/1.8.3/jquery.min.js"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script src="./server/wxconfig.php"></script>
-		<script src="./js/index.js?v=<?php echo time(); ?>"></script>
+		
+		<script type="text/javascript">
+		 	var url = "./server/wxconfig.php?url="+location.href.split('#')[0];		 
+			document.write('<script src="'+url+'"><\/script>');
+		</script>
+		
 		<style type="text/css">
 			body{
 				background: url(img/bg/choose.png) no-repeat center center #cf0f1a; 
 			}
-			hr{
-				width: 80%;
-				border: 0px;
-				border-bottom: 1px solid #ffffff;
-				margin: 30px auto;
-			}
-			.choose{
-				width: 100%;
-				height: 100%;
-			}
-			.panel{
-				width: 80%;
-				text-align: center;
-				margin: 0 auto;
-				height: 40%;
-				padding-top: 15%;
-			}
 			
-			.panel img{
-				width:80%;
-			}
-			.choose .thumbnail{
-				width: 80%;
-				margin: 0 auto;
-			}
-						
-			.choose .thumbnail .thumbnail-item{
-				width: 190px;
-				height: 180px;
-				float: left;
-				margin-right: 10px;
-				width: 40%;
-				height: 180px;
-				float: left;
-				margin-left: 5%;
-				margin-right: 5%;
-				position: relative;
-			}
-			.choose .btns{
-				background: #ffffff;
-				color: #FF0000;
-				bottom: 0px;
-				height: 20%;
-				margin: 0 auto;
-			}
 			.cancel{
 				display: inline-block;
 				background: url(img/btns/back.png) no-repeat center center;
@@ -123,33 +83,6 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 				width: 48px;
 				height: 48px;
 			}
-			.choose .btns .btn{
-				display: block;
-				width: auto;
-				height: auto;
-				padding: 10px;
-				font-size: 1.6em;
-				color: #FF0000;
-				font-weight: bold;
-				text-decoration: none;
-				height: 48px;
-				line-height: 48px;
-				vertical-align: middle;
-			}
-	
-			.choose .btns .btn span{
-				display: inline-block;
-				height: 48px;
-				vertical-align: middle;
-				float: right;
-				font-size: 48px;
-				margin-left: 10px;
-				margin-right: 10px;
-			}
-			.img-responsive{
-				width: 100%;
-				height: 100%;
-			}
 			.thumbnail-item.active:after{
 				content: " ";
 				background: center center url(img/btns/c.png);
@@ -161,197 +94,6 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 				background-size: contain;
 			}
 			
-			/*input*/
-			.input .panel{
-				height: 70%;
-				padding-top: 0%;
-			}
-			.input .panel img{
-				height: 70%;
-				margin-top: 20%;
-			}
-			.input .btns{
-				height: 30%;
-				background: #ffffff;
-				bottom: 0px;
-				position: relative;
-			}
-			.input .btns .input-ctrl{
-				width: 60%;
-				border-bottom: 1px solid #A18A8A;
-				text-align: center;
-				margin-left: 20%;
-				position: relative;
-				padding-top: 10%;
-			}
-			.input-ctrl:after{
-				background: #000000;
-				width: 1px;
-				height: 16px;
-				position: absolute;
-				right: 0px;
-				bottom: 0px;
-				display: block;
-				content: " ";	
-			}
-			
-			.input-ctrl:before{
-				background: #000000;
-				width: 1px;
-				height: 16px;
-				position: absolute;
-				left: 0px;
-				bottom: 0px;
-				display: block;
-				content: " ";	
-			}
-			.input .btns .input-ctrl input:focus,
-			.input .btns .input-ctrl input:active{
-				outline: none;
-			}
-			.input .btns .input-ctrl input{
-				padding: 1em;
-				border: 0px;
-				width: 100%;
-				font-size: 1.6em;
-				/*border-bottom: 1px solid #A18A8A;*/
-			}
-			.input .btns .input-ctrl .help-block{
-				color: #A18A8A;
-				font-size: 1.4em;
-				position: absolute;
-				right: 10%;
-				bottom: 1em;
-			}
-			.input .btns .btn{
-				display: block;
-				width: auto;
-				height: auto;
-				padding: 10px;
-				font-size: 1.6em;
-				color: #FF0000;
-				font-weight: bold;
-				text-decoration: none;
-				height: 48px;
-				line-height: 48px;
-				vertical-align: middle;
-			}
-	
-			.input .btns .btn span{
-				display: inline-block;
-				height: 48px;
-				font-size: 48px;
-				vertical-align: middle;
-				float: right;
-				margin-left: 10px;
-				margin-right: 10px;
-			}
-			.mask{
-				display: none;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				z-index: 1999;
-				background: rgba(0,0,0,0.5);
-			}
-			.mask img{
-				width: 100px;
-				display: block;
-				margin: 0 auto;
-				margin-top: 50%;
-			}
-			.result{
-				text-align: center;
-				line-height: 300px;
-				vertical-align: middle;
-				font-size: 3em;
-				display: none; 
-				color: #FFF2F2;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				z-index: 1999;
-				background: rgba(3, 3, 3, 0.72);
-			}
-			/*last*/
-			.last .panel{
-				height: 70%;
-				padding-top: 0%;
-			}
-			.last .panel img{
-				height: 70%;
-				margin-top: 20%;
-			}
-			.last .btns{
-				height: 30%;
-				background: #ffffff;
-				bottom: 0px;
-				position: relative;
-			}
-			.last .btns .btn{
-				display: block;
-				width: auto;
-				height: auto;
-				padding: 10px;
-				font-size: 1.6em;
-				color: #FF0000;
-				font-weight: bold;
-				text-decoration: none;
-				height: 48px;
-				line-height: 48px;
-				vertical-align: middle;
-			}
-			.last .btns .btn span{
-				display: inline-block;
-				height: 48px;
-				font-size: 48px;
-				vertical-align: middle;
-				float: right;
-				margin-left: 10px;
-				margin-right: 10px;
-			}
-			.last .btns .btns-ctrl{
-				height: 70%;
-			}
-			.last .btns .btns-nav{
-				text-align: center;
-				padding: 15px 0px;
-			}
-			.last .btns .btns-nav div{
-				width: 25%;
-				float: left;
-				
-			}
-			.last .btns .btns-nav a,
-			.last .btns .btns-subnav a	{
-				float: none;
-				width: 3.2em;
-				font-size: 1.6em;
-				text-decoration: none;
-				color: #000000;
-				height: auto;
-				margin: 0 auto;
-			}
-			.last hr{
-				width:100%;
-				margin: 0 auto;
-				border:1px solid #a4a4a4;
-			}
-			.last .btns .btns-subnav a.color-item{
-				width: 60px;
-				height: 60px;
-				float: left;
-				margin: 15px;
-				border-radius: 5px;
-				background: #A4A4A4;
-				position: relative;
-			}
-			.last .btns .btns-subnav a.red{
-				background: #FF0000;margin-left: 60px;
-			}
-			.last .btns .btns-subnav a.blue{
-				background: #0000FF;
-			}
 			.last .color-item.active:after{
 				content: " ";
 				background: center center url(img/btns/c.png);
@@ -362,10 +104,24 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 				bottom: 5px;
 				background-size: contain;
 			}
+			.share,.log{
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 199999;
+				background: rgba(0,0,0,0.5);
+			}
+			
 		</style>
 		<script type="text/javascript">
 			$(function(){
-				$(".choose,.input,.last").height($(window).height());
+				$(".choose,.input,.last,.share").height($(window).height());
+				$("div.share").click(function(){
+					$("div.share").hide();
+				});
 				$(".thumbnail-item img").click(function(){
 					$(".thumbnail-item").removeClass("active");
 					$(this).parent().addClass("active");
@@ -378,6 +134,7 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 					$(".color-item").removeClass("active");
 					$(this).addClass("active");
 					$("#color").val($(this).attr("data-color"));
+					
 				});
 				$("#text").keyup(function(){
 					var leftchar = <?php echo $len; ?> - $("#text").val().length;
@@ -428,7 +185,8 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 						console.log(data);
 						if(data && data.result == 0){
 							showlast();
-							$(".imgresult").attr("src",data.info);
+							$(".imgresult").attr("src",data.info.imgsrc);
+							$("#composeimg_media_id").val(data.info.media_id);
 						}else{
 							$(".result").text(data.info).fadeIn(500);
 							setTimeout(function(){$(".result").fadeOut(500).text('操作失败，请重试！');},3000)
@@ -440,13 +198,51 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 					
 				});
 			}
+			function showshare(){
+				$("div.share").show();
+			}
+			/*保存图片到手机*/
+			function save2phone(){
+				
+				if(window.isWxReady){
+					
+					var serverid = $("#composeimg_media_id").val();
+					if(!serverid){ 
+						//
+						
+						
+						$(".log").show(100).delay(3000).hide(100);
+						return ;
+					}
+					wx.downloadImage({
+					    serverId: serverid, // 需要下载的图片的服务器端ID，由uploadImage接口获得
+					    isShowProgressTips: 1, // 默认为1，显示进度提示
+					    success: function (res) {
+					        var localId = res.localId; // 返回图片下载后的本地ID
+					    }
+					});
+				}else{
+					//不在微信中
+					
+				}
+			}
 		</script>
+		
 	</head>
 	<body>
+		<div class="share"><img src="img/share.png"  width="100%" height="100%" alt="分享提示" /></div>
+		<div class="log" >请长按窗花图片！</div>	
+		<div class="audio">
+				<audio autoplay="autoplay" loop="loop" src="./audio/bg-jymt.mp3"></audio>
+		</div>
+		<input id="composeimg_media_id" type="hidden" value="" />
 		<input id="color" type="hidden" name="imgname" value="red" />
 		<input id="imgname" type="hidden" name="imgname" value="<?php echo $imgs[0]['path']; ?>" />
 		<input id="textimg" type="hidden" name="textimg" value="<?php echo $imgs[0]['id']; ?>" />
-		<div class="choose" style="display: none;">
+		
+				
+		<div class="choose">
+			<div style="height: 80%;">
 			<div class="panel">
 				<img class="imgorigin img-responsive" src="<?php echo $textpath.$imgs[0]['path']; ?>"/>
 			</div>
@@ -459,8 +255,9 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 				<img class="img-responsive" data-path="<?php echo $imgs[1]['path']; ?>"  data-id="<?php echo $imgs[1]['id']; ?>" src="<?php echo $textpath.$imgs[1]['path']; ?>"/>
 				</div>
 			</div>
+			</div>
 			<div class="btns">
-				<div class="clearfix" style="width: 380px;margin: 0 auto;margin-top: 10%;">
+				<div class="clearfix" style="width: 380px;margin: 0 auto;position: absolute;bottom: 20px;left: 50%;margin-left: -190px;">
 					<a class="btn" href="./index.php"><i class="cancel"></i><span>返回</span></a>
 					<a class="btn" href="javascript:showinput();"><i class="ok"></i><span>确认</span></a>
 				</div>
@@ -478,14 +275,14 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 					<input autofocus="autofocus" id="text" name="text" maxlength="<?php echo $len;?>" />
 					<span class="help-block">剩余字数 <span class="leftchar"><?php echo $len;?></span></span>
 				</div>
-				<div class="clearfix" style="width: 380px;margin: 0 auto;margin-top: 10%;">
+				<div class="clearfix" style="width: 380px;margin: 0 auto;position: absolute;bottom: 20px;left: 50%;margin-left: -190px;">
 					<a class="btn" href="javascript:showchoose();"><i class="cancel"></i><span>返回</span></a>
 					<a class="btn" href="javascript:compose();"><i class="ok"></i><span>确认</span></a>
 				</div>
 			</div>
 		</div>
 		
-		<div class="last" >
+		<div class="last"  style="display: none;">
 			<div class="panel">
 				<img class="imgresult img-responsive" src="img/320X400.gif" />
 			</div>
@@ -496,9 +293,9 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 						<a href="#color"><img src="img/btns/color.png" />颜色</a>
 						</div>
 						<div>
-						<a href="#"><img src="img/btns/send.png" />发送</a></div>
-						<div><a href="#"><img src="img/btns/fav.png" />收藏</a></div>
-						<div><a href="#"><img src="img/btns/share.png" />分享</a></div>
+						<a href="javascript:showshare();"><img src="img/btns/send.png" />发送</a></div>
+						<div><a href="javascript:save2phone();"><img src="img/btns/fav.png" />收藏</a></div>
+						<div><a href="javascript:showshare();"><img src="img/btns/share.png" />分享</a></div>
 					</div>
 					<hr />
 					<div class="btns-subnav clearfix">
@@ -512,17 +309,20 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 						</div>
 					</div>
 				</div>
-				<div class="clearfix" style="width: 380px;margin: 0 auto;">
+				<div class="clearfix" style="width: 380px;margin: 0 auto;margin-top: 10px;">
 					<a class="btn" href="javascript:showinput();"><i class="cancel"></i><span>返回</span></a>
 					<a class="btn" href="javascript:compose();"><i class="ok"></i><span>确认</span></a>
 				</div>
 			</div>
 		</div>
 		
-			//微信分享内容
-		<input type="hidden" id="wxshareTitle" value="分享标题" />
-		<input type="hidden" id="wxshareLink" value="http://www.baidu.com" />
+			<!-- 微信分享内容-->
+		<input type="hidden" id="wxshareTitle" value="GE恭贺大家新春快乐" />
+		<input type="hidden" id="wxshareLink" value="<?php echo SITE_URL; ?>" />
 		<input type="hidden" id="wxshareImgUrl" value="<?php echo SITE_URL; ?>img/wxshare.png" />
-		<input type="hidden" id="wxshareDesc" value="分享描述" />
+		<input type="hidden" id="wxshareDesc" value="GE恭贺大家新春快乐" />
+		
+		
+		<script src="./js/index.js?v=<?php echo time(); ?>"></script>
 	</body>
 	</html>

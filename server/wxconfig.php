@@ -7,19 +7,23 @@
 // |-----------------------------------------------------------------------------------
 require_once("config.php");
 require_once(__SERVER_PATH__.'/wxsdk/jssdk.php');
-$appid = "wx58aea38c0796394d";
-$appsecret = "3e1404c970566df55d7314ecfe9ff437";
-$jssdk = new JSSDK($appid, $appsecret);
-$signPackage = $jssdk->GetSignPackage();
-$jsapilist = "['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo']";
+$jssdk = new JSSDK(APPID, APPSECRET,__SERVER_PATH__.'/json/');
+$url = $_GET['url'];
+$signPackage = $jssdk->GetSignPackage($url);
+$jsapilist = "'chooseImage','previewImage','uploadImage','downloadImage','showMenuItems','showAllNonBaseMenuItem','hideAllNonBaseMenuItem','hideOptionMenu','showOptionMenu','hideMenuItems','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo'";
+
+
+
+
+
 
 $config = "wx.config({
-			    debug: true, 
+			    debug: false, 
 			    appId: '".$signPackage["appId"]."', 
 			    timestamp: '".$signPackage["timestamp"]."', 
 			    nonceStr: '".$signPackage["nonceStr"]."', 
 			    signature: '".$signPackage["signature"]."',
-			    jsApiList: ".$jsapilist."
+			    jsApiList: [".$jsapilist."]
 			});";
 
 echo $config;
