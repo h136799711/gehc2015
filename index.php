@@ -52,20 +52,67 @@ require_once ("./server/config.php");
 		
 		
 		<style type="text/css">.home {
-	background-image: url(img/bg/index_0.jpg);
+	background-image: url(img/bg/back.jpg);
 }
 .clound {
 	background-image: url(img/clound.png);
 }
 .btns a {
 	background: url(img/btns.png);
-}</style>
+}
+.sheep2015{
+	background: url(img/2015.png);
+}
+.sheep2015 {
+	position: absolute;
+background: url(img/2015.png) no-repeat center 0px;
+display: block;
+width: 100%;
+height: 100%;
+}
+.text {
+	position: absolute;
+background: url(img/heci.png) no-repeat 56% 270px;
+display: none;
+width: 100%;
+height: 100%;
+}
+.leftclound {
+	position: absolute;
+background: url(img/leftclound.png) no-repeat left 270px;
+display: none;
+width: 100%;
+height: 100%;
+	}
+.rightclound {
+	position: absolute;
+background: url(img/circle.png) no-repeat;
+display: none;
+width: 100%;
+height: 100%;
+	}
+	.clound .clound-item{
+		
+	}
+</style>
+		<script type="text/javascript">
+			$(function() {
+				$('.sheep2015').addClass("fadeInDown");
+				setTimeout(function(){ $('.leftclound').show().addClass("fadeInLeft");$('.rightclound').show().addClass("fadeInRight"); },800)
+				setTimeout(function(){ $('.text').show().addClass("zoomIn"); },1200)
+			});
+		</script>
 	</head>
 	<body>
 		<div class="audio">
-				<audio autoplay="autoplay" loop="loop" src="./audio/bg-jymt.mp3"></audio>
+				<!--<audio autoplay="autoplay" loop="loop" src="./audio/bg-jymt.mp3"></audio>-->
 		</div>
 		<div class="section home" >
+			<div class="sheep2015 animated "></div>
+			<div class="leftclound animated "></div>
+			<div class="text animated"></div>
+			<div class="rightclound animated "></div>
+			
 			<div class="btns">
 				<div class="pull-left leftbtns">
 					<a href="choose.php?len=1" class="one">
@@ -85,6 +132,22 @@ require_once ("./server/config.php");
 				</div>
 			</div>
 			<div class="clound animated infinite swing">
+				<div class="clound-row1">
+				<div class="clound-item"></div>
+				<div class="clound-item"></div>
+				</div>
+				<div class="clound-row2">
+				<div class="clound-item"></div>
+				<div class="clound-item"></div>
+				<div class="clound-item"></div>
+				</div>
+				<div class="clound-row3">
+				<div class="clound-item"></div>
+				<div class="clound-item"></div>
+				<div class="clound-item"></div>
+				<div class="clound-item"></div>
+				</div>
+				
 			</div>
 		</div>
 		
