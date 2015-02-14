@@ -114,11 +114,24 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 				z-index: 199999;
 				background: rgba(0,0,0,0.5);
 			}
-			
+			.hide{
+				display: none;
+			}
+			.log span{
+				display: block;
+				position: absolute;
+				left: 50%;
+				margin-left: -160px;
+				top: 40%;
+			}
 		</style>
 		<script type="text/javascript">
 			$(function(){
+				
 				$(".choose,.input,.last,.share").height($(window).height());
+				$(".log").click(function(){
+					$(".log").hide();
+				})
 				$("div.share").click(function(){
 					$("div.share").hide();
 				});
@@ -173,6 +186,12 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 				var txt = $("#text").val();
 				var imgname = $("#imgname").val();
 				var color = $("#color").val();
+				var txtlen = <?php echo $len;?>;
+				if(txt.length != txtlen){
+						var left = txtlen - txt.length;
+						$(".log").fadeIn(100).text("还差"+left.toString()+"个字未填").delay(3000).fadeOut(100);
+						return ;
+				}
 				$.ajax({
 					type:"POST",
 					url:"./server/compose.php",
@@ -226,12 +245,18 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 					
 				}
 			}
+			function showColorPlatter(){
+				$(".colorplatter").toggleClass("hide");
+			}
 		</script>
 		
 	</head>
 	<body>
 		<div class="share"><img src="img/share.png"  width="100%" height="100%" alt="分享提示" /></div>
-		<div class="log" >请长按窗花图片！</div>	
+		<div class="log" ><span >请长按窗花图片！</span></div>		
+		<div class="mask" ><img src="img/ajax-loading.gif" alt="合成中" /></div>	
+		
+		
 		<div class="audio">
 				<audio autoplay="autoplay" loop="loop" src="./audio/bg-jymt.mp3"></audio>
 		</div>
@@ -265,7 +290,6 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 		</div>
 		<div class="input" style="display: none;">		
 			<div class="result" >合成失败！</div>	
-			<div class="mask" ><img src="img/ajax-loading.gif" alt="合成中" /></div>	
 			<div class="panel">
 				<img  class="imgorigin img-responsive" src="<?php echo $textpath.$imgs[0]['path']; ?>"/>
 			</div>
@@ -284,34 +308,34 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 		
 		<div class="last"  style="display: none;">
 			<div class="panel">
-				<img class="imgresult img-responsive" src="img/320X400.gif" />
+				<img class="imgresult img-responsive" src="img/nopic.jpg" />
 			</div>
 			<div class="btns">
 				<div class="btns-ctrl">
 					<div class="btns-nav clearfix">
 						<div>
-						<a href="#color"><img src="img/btns/color.png" />颜色</a>
+						<a href="javascript:showColorPlatter();"><img src="img/btns/color.png" />颜色</a>
 						</div>
-						<div>
-						<a href="javascript:showshare();"><img src="img/btns/send.png" />发送</a></div>
+						<!--<div>
+						<a href="javascript:showshare();"><img src="img/btns/send.png" />发送</a></div>-->
 						<div><a href="javascript:save2phone();"><img src="img/btns/fav.png" />收藏</a></div>
 						<div><a href="javascript:showshare();"><img src="img/btns/share.png" />分享</a></div>
 					</div>
 					<hr />
 					<div class="btns-subnav clearfix">
-						<div id="color" class="colorplatte clearfix">
-							<a href="#" class="color-item red active" data-color="red"></a>
-							<a href="#" class="color-item blue" data-color="blue"></a>
-							<a href="#" class="color-item gray" data-color="gray"></a>							
-							<a href="#" class="color-item gray" data-color="gray"></a>
-							<a href="#" class="color-item gray" data-color="gray"></a>
-							<a href="#" class="color-item gray" data-color="gray"></a>
+						<div class="colorplatter clearfix hide">
+							<a href="javascript:compose();" class="color-item red active" data-color="red"></a>
+							<a href="javascript:compose();" class="color-item blue" data-color="blue"></a>
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>							
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
 						</div>
 					</div>
 				</div>
-				<div class="clearfix" style="width: 380px;margin: 0 auto;margin-top: 10px;">
+				<div class="clearfix" style="width: 190px;margin: 0 auto;margin-top: 10px;">
 					<a class="btn" href="javascript:showinput();"><i class="cancel"></i><span>返回</span></a>
-					<a class="btn" href="javascript:compose();"><i class="ok"></i><span>确认</span></a>
+					<!--<a class="btn" href="javascript:compose();"><i class="ok"></i><span>确认</span></a>-->
 				</div>
 			</div>
 		</div>

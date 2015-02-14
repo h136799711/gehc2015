@@ -134,12 +134,13 @@ hr{
 				width: 80%;
 				text-align: center;
 				margin: 0 auto;
-				height: 40%;
+				height: 50%;
 				padding-top: 15%;
 			}
 			
 			.panel img{
 				width:80%;
+				height: auto;
 			}
 			.choose .thumbnail{
 				width: 80%;
@@ -165,6 +166,9 @@ hr{
 				height: 20%;
 				margin: 0 auto;
 				position: relative;
+				/*缩小第二页白色区域*/
+				height: 108px;
+				position: absolute;
 			}
 			
 			.choose .btns .btn{
@@ -176,9 +180,6 @@ hr{
 				color: #FF0000;
 				font-weight: bold;
 				text-decoration: none;
-				height: 48px;
-				line-height: 48px;
-				vertical-align: middle;
 			}
 	
 			.choose .btns .btn span{
@@ -201,7 +202,8 @@ hr{
 				padding-top: 0%;
 			}
 			.input .panel img{
-				height: 80%;
+				height: auto;
+				width:90%;
 				margin-top: 20%;
 			}
 			.input .btns{
@@ -308,7 +310,7 @@ hr{
 			}
 			/*last*/
 			.last .panel{
-				height: 60%;
+				height: 70%;
 				padding-top: 0%;
 			}
 			.last .panel img{
@@ -317,10 +319,10 @@ hr{
 				box-shadow: 0 0 25px rgba(255, 30, 30, 1);
 			}
 			.last .btns{
-				height: 40%;
+				/*height: 40%;*/
 				background: #ffffff;
 				bottom: 0px;
-				position: relative;
+				/*position: relative;*/
 			}
 			.last .btns .btn{
 				display: block;
@@ -352,7 +354,7 @@ hr{
 				padding: 15px 0px;
 			}
 			.last .btns .btns-nav div{
-				width: 25%;
+				width: 33%;
 				float: left;
 				
 			}
