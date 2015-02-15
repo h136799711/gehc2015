@@ -9,7 +9,7 @@ $imgpath = __ROOT_PATH__."/img/text/";
 $fontpath =  __ROOT_PATH__."/fonts/SIMLI.TTF";
 
 $wxlib = new WXLib(APPID,APPSECRET,__SERVER_PATH__.'/json/');
-$filepath = __ROOT_PATH__."/img/text/2/2.jpg";
+$filepath = __ROOT_PATH__."/img/text/red/2/2.jpg";
 
 $json = json_decode($wxlib->uploadImg($filepath));
 

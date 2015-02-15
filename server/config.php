@@ -9,7 +9,8 @@
 define("__ROOT_PATH__", dirname(dirname(__FILE__)));
 define("__SERVER_PATH__", dirname(__FILE__));
 
-const APPID = "wx58aea38c0796394d";
-const APPSECRET = "3e1404c970566df55d7314ecfe9ff437";
-const SITE_URL = "http://localhost/github/gehc2015/";
+define("APPID", "wx58aea38c0796394d");
+define("APPSECRET", "3e1404c970566df55d7314ecfe9ff437");
+define("SITE_URL", "http://localhost/github/gehc2015/");
+
 //const SITE_URL = "http://gehc.weitonghui.com/";

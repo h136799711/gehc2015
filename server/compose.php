@@ -30,6 +30,7 @@ $dntUpload = true;
 
 if (isset($_POST['imgid']) && isset($_POST['txt']) && isset($_POST['imgname'])) {
 	$id = $_POST['imgid'];
+	//文字
 	$text = $_POST['txt'];
 	$imgname = $_POST['imgname'];
 	if(isset($_POST['color'])){
@@ -42,7 +43,7 @@ if (isset($_POST['imgid']) && isset($_POST['txt']) && isset($_POST['imgname'])) 
 	
 	$compImg = new ComposeImg($savepath,$imgpath,$fontpath);
 	
-	$filename = $compImg->process($text,$imgname,$colors[$color],$posArr);	
+	$filename = $compImg->process($text,$color.'/'.$imgname,$colors[$color],$posArr);	
 	if($dntUpload){
 	$wxlib = new WXLib(APPID,APPSECRET,__SERVER_PATH__.'/json/');
 	$json = json_decode($wxlib->uploadImg(__ROOT_PATH__.'/'.$filename));

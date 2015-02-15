@@ -141,10 +141,12 @@ hr{
 			.panel img{
 				width:80%;
 				height: auto;
+				max-height: 100%;
 			}
 			.choose .thumbnail{
 				width: 80%;
 				margin: 0 auto;
+				position: relative;
 			}
 						
 			.choose .thumbnail .thumbnail-item{
@@ -155,7 +157,7 @@ hr{
 				width: 40%;
 				height: 180px;
 				float: left;
-				margin-left: 5%;
+				/*margin-left: 5%;*/
 				margin-right: 5%;
 				position: relative;
 			}
@@ -205,6 +207,7 @@ hr{
 				height: auto;
 				width:90%;
 				margin-top: 20%;
+				max-height: 70%;
 			}
 			.input .btns{
 				height: 20%;
@@ -383,10 +386,17 @@ hr{
 				position: relative;
 			}
 			.last .btns .btns-subnav a.red{
-				background: #FF0000;margin-left: 60px;
+				background: rgb(183,27,41);
+				margin-left: 60px;  
 			}
 			.last .btns .btns-subnav a.blue{
-				background: #0000FF;
+				background: rgb(23,83,156);
+			}
+			.last .btns .btns-subnav a.purple{
+				background: rgb(84,77,141);
+			}
+			.last .btns .btns-subnav a.pink{
+				background: rgb(187,42,56);
 			}
 			.log{
 				font-size: 3em;

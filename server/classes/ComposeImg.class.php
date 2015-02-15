@@ -32,7 +32,7 @@ class ComposeImg{
 	 * @posArr 文字写入的位置 size,angel,x,y数组元素
 	 */
 	public function process($text,$imgname,$color,$posArr){
-//		var_dump($text);
+//		var_dump($posArr);
 		if(strlen($text) === 0){
 			return false;
 		}		

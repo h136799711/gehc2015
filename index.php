@@ -60,9 +60,6 @@ require_once ("./server/config.php");
 .btns a {
 	background: url(img/btns.png);
 }
-.sheep2015{
-	background: url(img/2015.png);
-}
 .sheep2015 {
 	position: absolute;
 background: url(img/2015.png) no-repeat center 0px;
@@ -86,31 +83,70 @@ height: 100%;
 	}
 .rightclound {
 	position: absolute;
-background: url(img/circle.png) no-repeat;
-display: none;
-width: 100%;
-height: 100%;
+	background: url(img/rightclound.png) no-repeat left top;
+	display: none;
+	right: 0px;
+	top: 270px;
+	overflow-y: hidden;
+	width: 140px;
+	height: 75px;
+	/*width: 100%;
+	height: 100%;*/
 	}
+	
+.sheep2015 ,.text,.leftclound,.rightclound{
+	/*width:640px;
+	height: 1008px;*/
+}
 	.clound .clound-item{
 		
 	}
+	
+	@-webkit-keyframes fadeInRight {
+  0% {
+    -webkit-transform: translate3d(640px, 0, 0);
+            transform: translate3d(640px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    -webkit-transform: translate3d(640px, 0, 0);
+            transform: translate3d(640px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
 </style>
 		<script type="text/javascript">
 			$(function() {
-				$('.sheep2015').addClass("fadeInDown");
-				setTimeout(function(){ $('.leftclound').show().addClass("fadeInLeft");$('.rightclound').show().addClass("fadeInRight"); },800)
+				setTimeout(function(){ 
+					$('.leftclound').show().addClass("fadeInLeft");		
+					$('.rightclound').show().addClass("fadeInRight");
+				$('.section').css({	'width': 640	});
+				 },800)
 				setTimeout(function(){ $('.text').show().addClass("zoomIn"); },1200)
+				
+				
 			});
 		</script>
 	</head>
 	<body>
 		<div class="audio">
-				<!--<audio autoplay="autoplay" loop="loop" src="./audio/bg-jymt.mp3"></audio>-->
+				<audio id="audio" autoplay="autoplay" loop="loop" src="./audio/bg-jymt.mp3"></audio>
 		</div>
-		<div class="section home" >
-			<div class="sheep2015 animated "></div>
+		<div class="section home"  >
+			<div class="sheep2015 animated fadeInDown"></div>
 			<div class="leftclound animated "></div>
-			<div class="text animated"></div>
+			<div class="text animated "></div>
 			<div class="rightclound animated "></div>
 			
 			<div class="btns">
@@ -132,7 +168,7 @@ height: 100%;
 				</div>
 			</div>
 			<div class="clound animated infinite swing">
-				<div class="clound-row1">
+				<!--<div class="clound-row1">
 				<div class="clound-item"></div>
 				<div class="clound-item"></div>
 				</div>
@@ -147,7 +183,7 @@ height: 100%;
 				<div class="clound-item"></div>
 				<div class="clound-item"></div>
 				</div>
-				
+				-->
 			</div>
 		</div>
 		

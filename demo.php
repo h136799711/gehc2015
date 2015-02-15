@@ -131,19 +131,13 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 			}
 			.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
 				background-image: url(img/btns/left.png);
-				left: -40px;
+				left: 0px;
 				right: auto;
-				top: 50%;
 			}
 			.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
 				background-image: url(img/btns/right.png);
-				right: -40px;
+				right: 10px;
 				left: auto;
-				top: 50%;
-			}
-			.choose{
-				background: url(img/bgchooose.png) no-repeat;
-				background-size: cover;
 			}
 			
 		</style>
@@ -312,9 +306,9 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 	 
 					<div class="swiper-pagination"></div>
 					<!-- If we need navigation buttons -->
-				</div>
    					<div class="swiper-button-prev"></div>
     				<div class="swiper-button-next"></div>
+				</div>
 				<!--<div class="thumbnail-item active">		
 				<img class="img-responsive" data-path="<?php echo $imgs[0]['path']; ?>" data-id="<?php echo $imgs[0]['id']; ?>" src="<?php echo $textpath.$imgs[0]['path']; ?>"/>
 				</div>
@@ -368,11 +362,11 @@ if(is_numeric($len) && $len > 0 && $len <= count($texts)){
 					<div class="btns-subnav clearfix">
 						<div class="colorplatter clearfix hide">
 							<a href="javascript:compose();" class="color-item red active" data-color="red"></a>
-							<a href="javascript:compose();" class="color-item pink" data-color="pink"></a>
 							<a href="javascript:compose();" class="color-item blue" data-color="blue"></a>
-							<a href="javascript:compose();" class="color-item purple" data-color="purple"></a>	
-							<!--<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
-							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>-->
+							<a href="javascript:compose();" class="color-item purple" data-color="purple"></a>							
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
+							<a href="javascript:compose();" class="color-item gray" data-color="gray"></a>
 						</div>
 					</div>
 				</div>
