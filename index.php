@@ -129,8 +129,10 @@ height: 100%;
 		<script type="text/javascript">
 			$(function() {
 				setTimeout(function(){ 
-					$('.leftclound').show().addClass("fadeInLeft");		
-					$('.rightclound').show().addClass("fadeInRight");
+					$('.leftclound').show().addClass("fadeIn");
+					$('.rightclound').show().addClass("fadeIn");
+//					$('.rightclound').animate({right:"0px"});
+					
 				$('.section').css({	'width': 640	});
 				 },800)
 				setTimeout(function(){ $('.text').show().addClass("zoomIn"); },1200)
